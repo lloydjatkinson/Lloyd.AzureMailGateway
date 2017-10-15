@@ -5,7 +5,7 @@ using Lloyd.AzureMailGateway.Providers;
 namespace Lloyd.AzureMailGateway.Factories
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class MailProviderFactory : IMailProviderFactory
     {

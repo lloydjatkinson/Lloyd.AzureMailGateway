@@ -15,7 +15,6 @@ namespace Lloyd.AzureMailGateway.Functions
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
             IMailProviderFactory factory = new MailProviderFactory();
-            
 
             log.Info("C# HTTP trigger function processed a request.");
 

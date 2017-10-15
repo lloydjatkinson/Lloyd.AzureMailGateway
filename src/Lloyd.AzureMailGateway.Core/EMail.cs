@@ -4,21 +4,32 @@ namespace Lloyd.AzureMailGateway.Core
 {
     public class EMail
     {
-        public To To { get; }
+        public To To { get; internal set; }
 
-        public From From { get; }
+        public From From { get; internal set; }
 
-        public EMail(To to, From from)
+        public Cc Cc { get; internal set; }
+
+        public Bcc Bcc { get; internal set; }
+
+        public string Subject { get; internal set; }
+
+        public EMail()
         {
-            if (to == null)
-            {
-                throw new ArgumentNullException(nameof(to));
-            }
 
-            if (from == null)
-            {
-                throw new ArgumentNullException(nameof(from));
-            }
         }
+
+        //public EMail(To to, From from)
+        //{
+        //    if (to == null)
+        //    {
+        //        throw new ArgumentNullException(nameof(to));
+        //    }
+
+        //    if (from == null)
+        //    {
+        //        throw new ArgumentNullException(nameof(from));
+        //    }
+        //}
     }
 }
