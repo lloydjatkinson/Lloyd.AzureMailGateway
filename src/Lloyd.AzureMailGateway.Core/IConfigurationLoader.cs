@@ -3,13 +3,13 @@
 namespace Lloyd.AzureMailGateway.Core
 {
     /// <summary>
-    /// Provides configurations for the mail provider(s).
+    /// Provides configuration for the mail provider(s).
     /// </summary>
-    public interface IConfiguration
+    public interface IConfigurationLoader
     {
         /// <summary>
         /// Contains the keys value pairs used by providers.
         /// </summary>
-        IReadOnlyDictionary<string, string> Values { get; set; }
+        IReadOnlyDictionary<string, string> GetConfiguration();
     }
 }

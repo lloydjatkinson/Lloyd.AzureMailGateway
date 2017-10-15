@@ -4,34 +4,62 @@ using Lloyd.AzureMailGateway.Providers;
 
 namespace Lloyd.AzureMailGateway.Factories
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class MailProviderFactory : IMailProviderFactory
     {
-        public IMailProvider GetProvider(IConfiguration configuration)
+        /// <summary>
+        /// Creates the instance of a MailProvider using the given configuration.
+        /// </summary>
+        /// <param name="configurationLoader">The configuration to be supplied to the MailProvider. The configuration key value pairs are specific to providers.</param>
+        /// <returns>The instantiated MailProvider.</returns>
+        public IMailProvider GetProvider(IConfigurationLoader configurationLoader)
         {
-            if (configuration == null)
+            if (configurationLoader == null)
             {
-                throw new ArgumentNullException(nameof(configuration));
+                throw new ArgumentNullException(nameof(configurationLoader));
             }
 
-            if (configuration.Values.TryGetValue("MailProvider", out string apiKey))
-            {
+            IMailProvider mailProvider = null;
 
+            var config = configurationLoader.GetConfiguration();
+            if (config.TryGetValue("MailProvider", out string provider))
+            {
+                if (!string.IsNullOrWhiteSpace(provider))
+                {
+                    switch (provider)
+                    {
+                        case nameof(Provider.SendGrid):
+                            mailProvider = new SendGridProvider(configurationLoader);
+                            break;
+
+                        default:
+                            throw new ArgumentException("Unknown provider.");
+                    }
+                }
             }
 
-            throw new NotImplementedException();
+            return mailProvider;
         }
 
-        public IMailProvider GetProvider(IConfiguration configuration, Provider provider)
+        /// <summary>
+        /// Creates the instance of a MailProvider using the given configuration and provider type.
+        /// </summary>
+        /// <param name="configurationLoader">The configuration to be supplied to the MailProvider. The configuration key value pairs are specific to providers.</param>
+        /// <param name="provider">The type of MailProvider to instantiate.</param>
+        /// <returns>The instantiated MailProvider.</returns>
+        public IMailProvider GetProvider(IConfigurationLoader configurationLoader, Provider provider)
         {
-            if (configuration == null)
+            if (configurationLoader == null)
             {
-                throw new ArgumentNullException(nameof(configuration));
+                throw new ArgumentNullException(nameof(configurationLoader));
             }
 
             switch (provider)
             {
                 case Provider.SendGrid:
-                    return new SendGridProvider(configuration);
+                    return new SendGridProvider(configurationLoader);
 
                 default:
                     throw new ArgumentOutOfRangeException("Unknown provider.");

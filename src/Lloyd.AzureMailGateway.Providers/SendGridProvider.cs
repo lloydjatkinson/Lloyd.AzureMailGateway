@@ -8,12 +8,14 @@ namespace Lloyd.AzureMailGateway.Providers
 {
     public class SendGridProvider : IMailProvider
     {
-
         private SendGridClient _client;
+        private IConfigurationLoader _configuration;
 
-        public SendGridProvider(IConfiguration configuration)
+        public SendGridProvider(IConfigurationLoader configuration)
         {
-            if (configuration.Values.TryGetValue("SendGridApiKey", out string apiKey))
+            _configuration.GetConfiguration();
+
+            if (configuration.GetConfiguration().TryGetValue("SendGridApiKey", out string apiKey))
             {
                 _client = new SendGridClient(apiKey);
             }
