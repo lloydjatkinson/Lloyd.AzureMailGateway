@@ -13,6 +13,7 @@ namespace Lloyd.AzureMailGateway.Providers
 
         public SendGridProvider(IConfigurationLoader configuration)
         {
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             _configuration.GetConfiguration();
 
             if (configuration.GetConfiguration().TryGetValue("SendGridApiKey", out string apiKey))

@@ -39,6 +39,10 @@ namespace Lloyd.AzureMailGateway.Factories
                     }
                 }
             }
+            else
+            {
+                throw new InvalidOperationException("Configuration is missing MailProvider.");
+            }
 
             return mailProvider;
         }
