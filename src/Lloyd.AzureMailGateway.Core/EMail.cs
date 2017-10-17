@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Lloyd.AzureMailGateway.Core
+﻿namespace Lloyd.AzureMailGateway.Core
 {
     public class EMail
     {
@@ -16,7 +14,6 @@ namespace Lloyd.AzureMailGateway.Core
 
         public EMail()
         {
-
         }
 
         //public EMail(To to, From from)

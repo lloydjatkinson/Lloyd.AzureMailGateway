@@ -16,8 +16,6 @@ namespace Lloyd.AzureMailGateway.Core
 
         public EMailBuilder To(string toAddress, string toDisplayName)
         {
-            
-
             return this;
         }
 

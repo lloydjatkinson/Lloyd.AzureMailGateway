@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -17,6 +16,12 @@ namespace Lloyd.AzureMailGateway.Functions
         {
             IMailProviderFactory factory = new MailProviderFactory();
             IConfigurationLoader configuration = new ConfigurationLoader();
+            var config = configuration.GetConfiguration();
+
+            if (!config.ContainsKey("MailProvider"))
+            {
+                return req.CreateErrorResponse(HttpStatusCode.InternalServerError, "Mail Provider not configured.");
+            }
 
             log.Info($"Using \"{configuration.GetConfiguration()["MailProvider"]}\" provider.");
             var provider = factory.GetProvider(configuration);
