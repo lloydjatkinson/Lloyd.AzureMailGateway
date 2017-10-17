@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Lloyd.AzureMailGateway.Core
 {
@@ -10,22 +9,28 @@ namespace Lloyd.AzureMailGateway.Core
 
         public EMailBuilder() => _mail = new EMail();
 
-
         public EMail Build()
         {
             throw new NotImplementedException();
         }
 
-        public EMailBuilder To(To to)
+        public EMailBuilder To(string toAddress, string toDisplayName)
         {
-            _mail.To = to ?? throw new ArgumentNullException(nameof(to));
+            
 
             return this;
         }
 
-        public EMailBuilder From(From from)
+        public EMailBuilder To(IEnumerable<Address> addresses)
         {
-            _mail.From = from ?? throw new ArgumentNullException(nameof(from));
+            _mail.To = new To(addresses);
+
+            return this;
+        }
+
+        public EMailBuilder From(string fromAddress, string fromDisplayName)
+        {
+            _mail.From = new From(new Address(fromAddress, fromDisplayName));
 
             return this;
         }

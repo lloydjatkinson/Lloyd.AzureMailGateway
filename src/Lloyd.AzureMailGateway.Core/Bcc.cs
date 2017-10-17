@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Lloyd.AzureMailGateway.Core
 {
@@ -6,8 +7,6 @@ namespace Lloyd.AzureMailGateway.Core
     {
         public IEnumerable<Address> Addresses { get; }
 
-        public Bcc(IEnumerable<Address> addresses)
-        {
-        }
+        public Bcc(IEnumerable<Address> addresses) => Addresses = addresses ?? throw new ArgumentNullException(nameof(addresses));
     }
 }
