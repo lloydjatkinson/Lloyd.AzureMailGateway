@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lloyd.AzureMailGateway.Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lloyd.AzureMailGateway.Functions", "Lloyd.AzureMailGateway.Functions\Lloyd.AzureMailGateway.Functions.csproj", "{C78B69E8-260E-4F03-A3D2-1682C192C34E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lloyd.AzureMailGateway.Factories.Tests", "Lloyd.AzureMailGateway.Factories.Tests\Lloyd.AzureMailGateway.Factories.Tests.csproj", "{429C6DB1-F7EC-4CE7-B927-5AC4B0B3843E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lloyd.AzureMailGateway.Factories.Tests", "Lloyd.AzureMailGateway.Factories.Tests\Lloyd.AzureMailGateway.Factories.Tests.csproj", "{429C6DB1-F7EC-4CE7-B927-5AC4B0B3843E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lloyd.AzureMailGateway.Models", "Lloyd.AzureMailGateway.Models\Lloyd.AzureMailGateway.Models.csproj", "{21227A91-FDF0-4660-912A-C71BD76738AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{429C6DB1-F7EC-4CE7-B927-5AC4B0B3843E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{429C6DB1-F7EC-4CE7-B927-5AC4B0B3843E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{429C6DB1-F7EC-4CE7-B927-5AC4B0B3843E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21227A91-FDF0-4660-912A-C71BD76738AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21227A91-FDF0-4660-912A-C71BD76738AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21227A91-FDF0-4660-912A-C71BD76738AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21227A91-FDF0-4660-912A-C71BD76738AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

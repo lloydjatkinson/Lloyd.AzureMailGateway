@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Lloyd.AzureMailGateway.Core\Lloyd.AzureMailGateway.Core.csproj" />
+    <ProjectReference Include="..\Lloyd.AzureMailGateway.Models\Lloyd.AzureMailGateway.Models.csproj" />
   </ItemGroup>
 
 </Project>
