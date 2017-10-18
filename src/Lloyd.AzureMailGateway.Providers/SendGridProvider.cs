@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using Lloyd.AzureMailGateway.Core;
 using SendGrid;
 
@@ -10,6 +11,7 @@ namespace Lloyd.AzureMailGateway.Providers
     {
         private SendGridClient _client;
         private IConfigurationLoader _configuration;
+        private IMapper _mapper;
 
         public SendGridProvider(IConfigurationLoader configuration)
         {

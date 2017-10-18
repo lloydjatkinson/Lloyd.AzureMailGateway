@@ -1,6 +1,7 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using AutoMapper;
 using Lloyd.AzureMailGateway.Core;
 using Lloyd.AzureMailGateway.Factories;
 using Microsoft.Azure.WebJobs;
@@ -16,6 +17,8 @@ namespace Lloyd.AzureMailGateway.Functions
         {
             IMailProviderFactory factory = new MailProviderFactory();
             IConfigurationLoader configuration = new ConfigurationLoader();
+            IMapper mapper = null;
+
             var config = configuration.GetConfiguration();
 
             if (!config.ContainsKey("MailProvider"))
@@ -24,7 +27,7 @@ namespace Lloyd.AzureMailGateway.Functions
             }
 
             log.Info($"Using \"{configuration.GetConfiguration()["MailProvider"]}\" provider.");
-            var provider = factory.GetProvider(configuration);
+            var provider = factory.GetProvider(configuration, mapper);
 
             return req.CreateResponse(HttpStatusCode.OK);
         }
