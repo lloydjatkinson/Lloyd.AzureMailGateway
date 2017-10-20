@@ -15,6 +15,8 @@ namespace Lloyd.AzureMailGateway.Functions
         [FunctionName("MailProcessor")]
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
+            // Composition root.
+
             IMailProviderFactory factory = new MailProviderFactory();
             IConfigurationLoader configuration = new ConfigurationLoader();
             IMapper mapper = null;
