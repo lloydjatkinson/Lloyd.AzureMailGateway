@@ -6,40 +6,66 @@ namespace Lloyd.AzureMailGateway.Core
     {
         private EMail _mail;
 
+        private Address _from;
+        private List<Address> _to = new List<Address>();
+        private List<Address> _bcc = new List<Address>();
+        private List<Address> _cc = new List<Address>();
+
         public EMailBuilder()
         {
             _mail = new EMail();
-            _mail.To = new To() { Addresses = new List<Address>() };
-            _mail.From = new From() { Address = new Address() };
-            _mail.Cc = new Cc() { Addresses = new List<Address>() };
-            _mail.Bcc = new Bcc() { Addresses = new List<Address>() };
         }
 
-        public EMail Build() => _mail;
-
-        public EMailBuilder To(string toAddress, string toDisplayName)
-            => To(new List<Address>()
-            {
-                new Address(toAddress, toDisplayName)
-            });
-
-        public EMailBuilder To(IEnumerable<Address> addresses)
+        public EMail Build()
         {
-            _mail.To = new To(addresses);
+            return new EMail()
+            {
+                From = new From(_from),
+                To = new To(_to),
+                Bcc = new Bcc(_bcc),
+                Cc = new Cc(_cc),
+            };
+        }
+
+        private EMailBuilder From(string address)
+        {
+            _from = new Address(address, string.Empty);
 
             return this;
         }
 
-        public EMailBuilder From(string fromAddress, string fromDisplayName)
+        private EMailBuilder From(string address, string displayName)
         {
-            _mail.From = new From(new Address(fromAddress, fromDisplayName));
+            _from = new Address(address, displayName);
+
+            return this;
+        }
+
+        public EMailBuilder To(string address, string displayName)
+            => To(new List<Address>()
+            {
+                new Address(address, displayName)
+            });
+
+        public EMailBuilder To(IEnumerable<Address> addresses)
+        {
+            _to.AddRange(addresses);
 
             return this;
         }
 
         public EMailBuilder Cc(IEnumerable<Address> addresses)
         {
-            _mail.
+            _cc.AddRange(addresses);
+
+            return this;
+        }
+
+        public EMailBuilder Bcc(IEnumerable<Address> addresses)
+        {
+            _bcc.AddRange(addresses);
+
+            return this;
         }
     }
 }
