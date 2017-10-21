@@ -6,6 +6,7 @@ namespace Lloyd.AzureMailGateway.Core
     {
         private EMail _mail;
 
+        private string _subject = string.Empty;
         private Address _from;
         private List<Address> _to = new List<Address>();
         private List<Address> _bcc = new List<Address>();
@@ -17,24 +18,29 @@ namespace Lloyd.AzureMailGateway.Core
         }
 
         public EMail Build()
-        {
-            return new EMail()
+            => new EMail()
             {
                 From = new From(_from),
                 To = new To(_to),
                 Bcc = new Bcc(_bcc),
                 Cc = new Cc(_cc),
             };
+
+        public EMailBuilder Subject(string subject)
+        {
+            _subject = subject;
+
+            return this;
         }
 
-        private EMailBuilder From(string address)
+        public EMailBuilder From(string address)
         {
             _from = new Address(address, string.Empty);
 
             return this;
         }
 
-        private EMailBuilder From(string address, string displayName)
+        public EMailBuilder From(string address, string displayName)
         {
             _from = new Address(address, displayName);
 

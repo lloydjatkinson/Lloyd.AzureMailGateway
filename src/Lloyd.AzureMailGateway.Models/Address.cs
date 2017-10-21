@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Lloyd.AzureMailGateway.Core
 {
     /// <summary>
     /// Contains the E-Mail address and an optional display name.
     /// </summary>
+    [DebuggerDisplay("E-Mail = {EMail}, Name = {Name}")]
     public class Address
     {
         /// <summary>
@@ -35,6 +37,9 @@ namespace Lloyd.AzureMailGateway.Core
             {
                 throw new ArgumentException(nameof(email));
             }
+
+            EMail = email;
+            Name = name;
         }
     }
 }
