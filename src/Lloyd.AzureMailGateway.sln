@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lloyd.AzureMailGateway.Providers", "Lloyd.AzureMailGateway.Providers\Lloyd.AzureMailGateway.Providers.csproj", "{0D0F8EBA-631C-41F9-B72E-546061FC1E07}"
 EndProject
@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lloyd.AzureMailGateway.Func
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lloyd.AzureMailGateway.Factories.Tests", "Lloyd.AzureMailGateway.Factories.Tests\Lloyd.AzureMailGateway.Factories.Tests.csproj", "{429C6DB1-F7EC-4CE7-B927-5AC4B0B3843E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lloyd.AzureMailGateway.Models", "Lloyd.AzureMailGateway.Models\Lloyd.AzureMailGateway.Models.csproj", "{21227A91-FDF0-4660-912A-C71BD76738AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lloyd.AzureMailGateway.Models", "Lloyd.AzureMailGateway.Models\Lloyd.AzureMailGateway.Models.csproj", "{21227A91-FDF0-4660-912A-C71BD76738AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lloyd.AzureMailGateway.Models.Tests", "Lloyd.AzureMailGateway.Models.Tests\Lloyd.AzureMailGateway.Models.Tests.csproj", "{1C69CCB5-12B5-4496-B083-E8B112893954}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lloyd.AzureMailGateway.Models.Tests", "Lloyd.AzureMailGateway.Models.Tests\Lloyd.AzureMailGateway.Models.Tests.csproj", "{1C69CCB5-12B5-4496-B083-E8B112893954}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lloyd.AzureMailGateway.Core.Tests", "Lloyd.AzureMailGateway.Core.Tests\Lloyd.AzureMailGateway.Core.Tests.csproj", "{1F53223C-AC6F-4FD5-8B75-DB2337A265E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{1C69CCB5-12B5-4496-B083-E8B112893954}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C69CCB5-12B5-4496-B083-E8B112893954}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C69CCB5-12B5-4496-B083-E8B112893954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F53223C-AC6F-4FD5-8B75-DB2337A265E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F53223C-AC6F-4FD5-8B75-DB2337A265E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F53223C-AC6F-4FD5-8B75-DB2337A265E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F53223C-AC6F-4FD5-8B75-DB2337A265E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

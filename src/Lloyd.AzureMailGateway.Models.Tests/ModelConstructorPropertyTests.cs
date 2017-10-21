@@ -18,7 +18,7 @@ namespace Lloyd.AzureMailGateway.Models.Tests
         }
 
         [Theory, AutoData]
-        public void ToConstructorShouldSetProperty(string emailAddress, string name)
+        public void ToConstructorShouldSetProperties(string emailAddress, string name)
         {
             var to = new To(new List<Address>() { new Address(emailAddress, name) });
             to.Addresses.FirstOrDefault().EMail.ShouldBe(emailAddress);
@@ -26,7 +26,7 @@ namespace Lloyd.AzureMailGateway.Models.Tests
         }
 
         [Theory, AutoData]
-        public void FromConstructorShouldSetProperty(string emailAddress, string name)
+        public void FromConstructorShouldSetProperties(string emailAddress, string name)
         {
             var from = new From(new Address(emailAddress, name));
             from.Address.EMail.ShouldBe(emailAddress);
@@ -34,7 +34,7 @@ namespace Lloyd.AzureMailGateway.Models.Tests
         }
 
         [Theory, AutoData]
-        public void CcConstructorShouldSetProperty(string emailAddress, string name)
+        public void CcConstructorShouldSetProperties(string emailAddress, string name)
         {
             var cc = new Cc(new List<Address>() { new Address(emailAddress, name) });
             cc.Addresses.FirstOrDefault().EMail.ShouldBe(emailAddress);
@@ -42,7 +42,7 @@ namespace Lloyd.AzureMailGateway.Models.Tests
         }
 
         [Theory, AutoData]
-        public void BccConstructorShouldSetProperty(string emailAddress, string name)
+        public void BccConstructorShouldSetProperties(string emailAddress, string name)
         {
             var bcc = new Bcc(new List<Address>() { new Address(emailAddress, name) });
             bcc.Addresses.FirstOrDefault().EMail.ShouldBe(emailAddress);
