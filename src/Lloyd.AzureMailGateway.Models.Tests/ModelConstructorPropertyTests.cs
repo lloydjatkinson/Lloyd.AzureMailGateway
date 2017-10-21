@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Lloyd.AzureMailGateway.Models.Tests
 {
-    public class BasicModelTests
+    public class ModelConstructorPropertyTests
     {
         [Theory, AutoData]
         public void AddressConstructorShouldSetProperties(string emailAddress, string name)
