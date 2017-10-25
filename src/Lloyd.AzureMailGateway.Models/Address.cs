@@ -22,10 +22,10 @@ namespace Lloyd.AzureMailGateway.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="Address"/> class.
         /// </summary>
-        /// <param name="email">The E-Mail address.</param>
-        /// <param name="name">The optional display name.</param>
-        /// <exception cref="ArgumentNullException">email</exception>
-        /// <exception cref="ArgumentException">email</exception>
+        /// <param name="email">The E-Mail address string.</param>
+        /// <param name="name">The display name of the recipient.</param>
+        /// <exception cref="System.ArgumentNullException">E-Mail address must not be null.</exception>
+        /// <exception cref="System.ArgumentException">E-Mail address must not be white-space.</exception>
         public Address(string email, string name)
         {
             if (email == null)
