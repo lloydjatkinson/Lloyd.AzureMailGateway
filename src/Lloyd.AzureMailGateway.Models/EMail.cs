@@ -12,9 +12,9 @@
 
         public Bcc Bcc { get; internal set; }
 
-        public EMail()
-        {
-        }
+        //public EMail()
+        //{
+        //}
 
         //public EMail(To to, From from)
         //{

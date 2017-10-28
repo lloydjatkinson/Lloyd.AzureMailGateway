@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Lloyd.AzureMailGateway.Models
 {
@@ -12,19 +13,13 @@ namespace Lloyd.AzureMailGateway.Models
         private List<Address> _bcc = new List<Address>();
         private List<Address> _cc = new List<Address>();
 
+        private bool _fromSet;
+        private bool _toSet;
+
         public EMailBuilder()
         {
             _mail = new EMail();
         }
-
-        public EMail Build()
-            => new EMail()
-            {
-                From = new From(_from),
-                To = new To(_to),
-                Bcc = new Bcc(_bcc),
-                Cc = new Cc(_cc),
-            };
 
         public EMailBuilder Subject(string subject)
         {
@@ -37,6 +32,7 @@ namespace Lloyd.AzureMailGateway.Models
         {
             _from = new Address(address, string.Empty);
 
+            _fromSet = true;
             return this;
         }
 
@@ -44,6 +40,7 @@ namespace Lloyd.AzureMailGateway.Models
         {
             _from = new Address(address, displayName);
 
+            _fromSet = true;
             return this;
         }
 
@@ -57,6 +54,7 @@ namespace Lloyd.AzureMailGateway.Models
         {
             _to.AddRange(addresses);
 
+            _fromSet = true;
             return this;
         }
 
@@ -73,5 +71,24 @@ namespace Lloyd.AzureMailGateway.Models
 
             return this;
         }
+
+        public EMail Build()
+        {
+            if (!IsValidState())
+            {
+                throw new InvalidOperationException("The E-Mail object state is not valid. Ensure the usage of the builder is correct.");
+            }
+
+            return new EMail()
+            {
+                Subject = new Subject(_subject),
+                From = new From(_from),
+                To = new To(_to),
+                Bcc = new Bcc(_bcc),
+                Cc = new Cc(_cc),
+            };
+        }
+
+        private bool IsValidState() => _fromSet && _toSet;
     }
 }
