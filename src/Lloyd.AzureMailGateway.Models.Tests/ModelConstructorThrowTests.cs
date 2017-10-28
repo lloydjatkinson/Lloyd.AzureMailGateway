@@ -1,5 +1,4 @@
 ﻿using System;
-using Lloyd.AzureMailGateway.Core;
 using Shouldly;
 
 namespace Lloyd.AzureMailGateway.Models.Tests

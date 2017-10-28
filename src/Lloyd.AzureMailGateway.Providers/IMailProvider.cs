@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Lloyd.AzureMailGateway.Core;
+using Lloyd.AzureMailGateway.Models;
 
 namespace Lloyd.AzureMailGateway.Providers
 {

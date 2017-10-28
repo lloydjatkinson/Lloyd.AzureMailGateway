@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoFixture.Xunit2;
-using Lloyd.AzureMailGateway.Core;
 using Shouldly;
 using Xunit;
 
@@ -47,6 +46,13 @@ namespace Lloyd.AzureMailGateway.Models.Tests
             var bcc = new Bcc(new List<Address>() { new Address(emailAddress, name) });
             bcc.Addresses.FirstOrDefault().EMail.ShouldBe(emailAddress);
             bcc.Addresses.FirstOrDefault().Name.ShouldBe(name);
+        }
+
+        [Theory, AutoData]
+        public void SubjectConstructorShouldSetProperties(string subjectText)
+        {
+            var subject = new Subject(subjectText);
+            subject.Text.ShouldBe(subjectText);
         }
     }
 }

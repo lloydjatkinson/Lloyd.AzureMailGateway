@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoFixture.Xunit2;
 using Lloyd.AzureMailGateway.Core.JsonConverters;
+using Lloyd.AzureMailGateway.Models;
 using Newtonsoft.Json;
 using Shouldly;
 using Xunit;

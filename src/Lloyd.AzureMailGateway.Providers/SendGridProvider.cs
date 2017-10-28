@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Lloyd.AzureMailGateway.Core;
+using Lloyd.AzureMailGateway.Models;
 using SendGrid;
 
 namespace Lloyd.AzureMailGateway.Providers

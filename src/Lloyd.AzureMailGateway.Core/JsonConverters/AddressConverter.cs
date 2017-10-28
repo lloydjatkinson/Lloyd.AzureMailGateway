@@ -1,4 +1,5 @@
 ﻿using System;
+using Lloyd.AzureMailGateway.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
