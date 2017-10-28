@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Lloyd.AzureMailGateway.Core
+namespace Lloyd.AzureMailGateway.Models
 {
     /// <summary>
     /// Contains the E-Mail address and an optional display name.

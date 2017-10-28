@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Lloyd.AzureMailGateway.Core
+namespace Lloyd.AzureMailGateway.Models
 {
     public class From
     {

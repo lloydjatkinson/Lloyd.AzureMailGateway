@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Lloyd.AzureMailGateway.Core
+namespace Lloyd.AzureMailGateway.Models
 {
     /// <summary>
     /// Contains the E-Mail addresses that are to be in the E-Mail CC recipient list.
