@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Lloyd.AzureMailGateway.Models
 {
+    /// <summary>
+    /// Builds the E-Mails.
+    /// </summary>
     public class EMailBuilder
     {
         private EMail _mail;
@@ -16,11 +19,19 @@ namespace Lloyd.AzureMailGateway.Models
         private bool _fromSet;
         private bool _toSet;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EMailBuilder"/> class.
+        /// </summary>
         public EMailBuilder()
         {
             _mail = new EMail();
         }
 
+        /// <summary>
+        /// Sets the subject.
+        /// </summary>
+        /// <param name="subject">The subject.</param>
+        /// <returns></returns>
         public EMailBuilder Subject(string subject)
         {
             _subject = subject;
@@ -28,6 +39,11 @@ namespace Lloyd.AzureMailGateway.Models
             return this;
         }
 
+        /// <summary>
+        /// Sets the sender address.
+        /// </summary>
+        /// <param name="address">The address.</param>
+        /// <returns></returns>
         public EMailBuilder From(string address)
         {
             _from = new Address(address, string.Empty);
@@ -36,6 +52,12 @@ namespace Lloyd.AzureMailGateway.Models
             return this;
         }
 
+        /// <summary>
+        /// Sets the sender address.
+        /// </summary>
+        /// <param name="address">The address.</param>
+        /// <param name="displayName">The display name.</param>
+        /// <returns></returns>
         public EMailBuilder From(string address, string displayName)
         {
             _from = new Address(address, displayName);
@@ -44,12 +66,23 @@ namespace Lloyd.AzureMailGateway.Models
             return this;
         }
 
+        /// <summary>
+        /// Sets the recipient address.
+        /// </summary>
+        /// <param name="address">The address.</param>
+        /// <param name="displayName">The display name.</param>
+        /// <returns></returns>
         public EMailBuilder To(string address, string displayName)
             => To(new List<Address>()
             {
                 new Address(address, displayName)
             });
 
+        /// <summary>
+        /// Sets the recipient addresses.
+        /// </summary>
+        /// <param name="addresses">The addresses.</param>
+        /// <returns></returns>
         public EMailBuilder To(IEnumerable<Address> addresses)
         {
             _to.AddRange(addresses);
@@ -58,6 +91,11 @@ namespace Lloyd.AzureMailGateway.Models
             return this;
         }
 
+        /// <summary>
+        /// Sets the CC addresses
+        /// </summary>
+        /// <param name="addresses">The addresses.</param>
+        /// <returns></returns>
         public EMailBuilder Cc(IEnumerable<Address> addresses)
         {
             _cc.AddRange(addresses);
@@ -65,6 +103,11 @@ namespace Lloyd.AzureMailGateway.Models
             return this;
         }
 
+        /// <summary>
+        /// Sets the BCC addresses.
+        /// </summary>
+        /// <param name="addresses">The addresses.</param>
+        /// <returns></returns>
         public EMailBuilder Bcc(IEnumerable<Address> addresses)
         {
             _bcc.AddRange(addresses);
@@ -72,6 +115,11 @@ namespace Lloyd.AzureMailGateway.Models
             return this;
         }
 
+        /// <summary>
+        /// Builds the E-Mail instance. The builder must be used correctly for the instance to be built correctly.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException">The E-Mail object state is not valid. Ensure the usage of the builder is correct.</exception>
         public EMail Build()
         {
             if (!IsValidState())
