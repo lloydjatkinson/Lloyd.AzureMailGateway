@@ -87,7 +87,7 @@ namespace Lloyd.AzureMailGateway.Models
         {
             _to.AddRange(addresses);
 
-            _fromSet = true;
+            _toSet = true;
             return this;
         }
 
