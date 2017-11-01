@@ -8,19 +8,6 @@ namespace Lloyd.AzureMailGateway.Models.Tests
 {
     public class EMailBuilderTests
     {
-        //[Fact]
-        //public void BuilderShouldReturnNonNullEMailInstance()
-        //{
-        //    // Arrange
-        //    var builder = new EMailBuilder();
-
-        //    // Act
-        //    var email = new EMailBuilder().Build();
-
-        //    // Assert
-
-        //}
-
         [Fact]
         public void BuildShouldThrowOnInvalidState()
         {
