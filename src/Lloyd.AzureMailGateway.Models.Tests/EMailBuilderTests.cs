@@ -91,5 +91,23 @@ namespace Lloyd.AzureMailGateway.Models.Tests
             email.Bcc.Addresses.First().EMail.ShouldBe(bccAddress.EMail);
             email.Bcc.Addresses.First().Name.ShouldBe(bccAddress.Name);
         }
+
+        [Theory, AutoData]
+        public void BuilderShouldSetSubjectProperty(Address toAddress, Address fromAddress, string subject)
+        {
+            // Arrange
+            var builder = new EMailBuilder();
+
+            // Act
+            builder
+                .To(toAddress.EMail, toAddress.Name)
+                .From(fromAddress.EMail, fromAddress.Name)
+                .Subject(subject);
+
+            var email = builder.Build();
+
+            // Assert
+            email.Subject.Text.ShouldBe(subject);
+        }
     }
 }
