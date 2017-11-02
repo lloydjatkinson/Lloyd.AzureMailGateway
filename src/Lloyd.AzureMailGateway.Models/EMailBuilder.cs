@@ -92,7 +92,18 @@ namespace Lloyd.AzureMailGateway.Models
         }
 
         /// <summary>
-        /// Sets the CC addresses
+        /// Sets the CC addresses.
+        /// </summary>
+        /// <param name="addresses">The addresses.</param>
+        /// <returns></returns>
+        public EMailBuilder Cc(string address, string displayName)
+            => Cc(new List<Address>()
+            {
+                new Address(address, displayName)
+            });
+
+        /// <summary>
+        /// Sets the CC addresses.
         /// </summary>
         /// <param name="addresses">The addresses.</param>
         /// <returns></returns>
@@ -102,6 +113,17 @@ namespace Lloyd.AzureMailGateway.Models
 
             return this;
         }
+
+        /// <summary>
+        /// Sets the BCC addresses.
+        /// </summary>
+        /// <param name="addresses">The addresses.</param>
+        /// <returns></returns>
+        public EMailBuilder Bcc(string address, string displayName)
+            => Bcc(new List<Address>()
+            {
+                new Address(address, displayName)
+            });
 
         /// <summary>
         /// Sets the BCC addresses.
